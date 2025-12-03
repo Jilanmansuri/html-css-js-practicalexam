@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="myInput">
+    <button id="saveBtn">Save</button>
+
+    <h2>Saved Text:</h2>
+    <p id="display"></p>
+
+    <script>
+        const input = document.getElementById("myInput");
+        const btn = document.getElementById("saveBtn");
+        const display = document.getElementById("display");
+
+        display.textContent = localStorage.getItem("myText") || "";
+
+        btn.addEventListener("click", () => {
+            const text = input.value;
+
+            localStorage.setItem("myText", text);
+            display.textContent = text;
+
+            input.value = "";
+        });
+    </script>
+</body>
+
+</html>
